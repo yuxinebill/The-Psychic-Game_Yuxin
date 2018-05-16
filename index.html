@@ -13,21 +13,65 @@
 
 <body>
 
-  <header class="jumbotron-fluid"> 
-
-    <h1>The Psychic Game</h1>
-
+  <header class="jumbotron jumbotron-fluid text-center bg-info text-white"> 
+    <div class="container">
+      <h1>The Psychic Game</h1>
+      
+      <h4 class="font-weight-light">Guess what letter I'm thinking of ?</h4>
+      
+    </div>
   </header>
 
-  <p>Guess what letter I'm thinking of</p>
+  <section class="container text-center">
 
-  <p id="wins">Wins: 0</p>
+    <div class="row">
 
-  <p id="losses">Losses: 0</p>
+      <div class="col-2"></div>
 
-  <p>Guesses Left: <span id="left">9</span></p>
+      <div class="col-3">
+        <div class="card ">
+          <div class="card-header">
+            Guesses Left
+          </div>
+          <h1 id="left"> 9 </h1>
+        </div>
+      </div>
 
-  <p>Your Guesses so far: <span id="history"></span></p>
+      <div class="col-5">
+        <div class="card">
+          <div class="card-header bg-info text-white">
+            Your Guesses so far
+          </div>
+          <h1 id="history" class="text-info"></h1>
+        </div>   
+      </div>
+
+      <div class="col-2"></div>
+    </div><!--row 1 end-->    
+
+    <div class="row bg-light mt-4 py-5">
+
+      <div class="col-2"></div>
+
+      <div class="col-4">
+        <div class="card">
+          <div class="card-header">Wins</div>
+          <h2 id="wins" class="text-warning"> 0 </h2>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="card">
+          <div class="card-header">losses</div>
+          <h2 id="losses" class="text-warning"> 0 </h2>
+        </div>
+      </div>
+
+      <div class="col-2"></div>
+      
+    </div><!--row 2 end-->
+  
+  </section>
 
 
   <script type="text/javascript">
@@ -93,13 +137,13 @@
         // if the chance less than 1, then lose number ++ , and game reset
         if (chanceLeft<1) {
           losses++;
-          document.getElementById("losses").innerHTML = "Losses: " + losses;
+          document.getElementById("losses").innerHTML = losses;
           alert("You Lose! The computer's choice is " + computerChoiceTurn)
           resetGame ();
         }
       } else {
         wins++;
-        document.getElementById("wins").innerHTML = "Wins: " + wins;
+        document.getElementById("wins").innerHTML = wins;
         alert("You win!")
         resetGame ();
       }
